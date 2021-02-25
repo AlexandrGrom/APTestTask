@@ -6,6 +6,9 @@ public class Item : MonoBehaviour, ICollisiable
     [SerializeField] protected float fallingSpeed;
     protected Rigidbody rigidBody;
 
+    private bool isInPool;
+    public bool IsInPool => isInPool;
+
     private bool takeForce = true;
 
     private void Awake()
@@ -26,5 +29,10 @@ public class Item : MonoBehaviour, ICollisiable
     {
         takeForce = false;
         rigidBody.useGravity = true;
+    }
+
+    protected virtual void Disactivate()
+    {
+        isInPool = true;
     }
 }

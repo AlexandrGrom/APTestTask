@@ -12,7 +12,6 @@ public class Game : ScreenElement
 
     protected override void OnEnable()
     {
-        Debug.Log("Game");
         base.OnEnable();
     }
 }

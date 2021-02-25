@@ -68,10 +68,12 @@
     <Compile Include="Assets\Scripts\Enums\GameState.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICollisiable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IReciveble.cs" />
+    <Compile Include="Assets\Scripts\Items\Bomb.cs" />
     <Compile Include="Assets\Scripts\Items\Egg.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemSpawner.cs" />
     <Compile Include="Assets\Scripts\Manager\GameStateManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\privat.cs" />
     <Compile Include="Assets\Scripts\UI\Game.cs" />
     <Compile Include="Assets\Scripts\UI\LoseScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />

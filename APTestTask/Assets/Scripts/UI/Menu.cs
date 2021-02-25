@@ -12,7 +12,6 @@ public class Menu : ScreenElement
 
     protected override void OnEnable()
     {
-        Debug.Log("Menu");
         base.OnEnable();
     }
 }
