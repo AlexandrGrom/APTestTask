@@ -22,7 +22,6 @@ public class Menu : ScreenElement
         play.transform.DOScale(Vector3.zero, 0.2f).SetEase(Ease.InBack);
         yield return new WaitForSeconds(0.2f);
 
-        float waitTime = 0.5f;
         for (int i = 3; i >= 0; i--)
         {
             yield return new WaitForSeconds(waitTime/2);

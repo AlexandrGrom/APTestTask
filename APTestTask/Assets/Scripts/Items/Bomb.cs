@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
-
 public class Bomb : Item, IReciveble
 {
     public void Recive(Transform parent)

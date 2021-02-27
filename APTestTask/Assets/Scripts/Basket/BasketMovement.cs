@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 [RequireComponent(typeof(Rigidbody))]
 public class BasketMovement : MonoBehaviour
@@ -7,7 +8,6 @@ public class BasketMovement : MonoBehaviour
     [SerializeField] private Vector2 MinMaxScreenOffset;
 
     private Rigidbody rigidBody;
-    private Vector3 currentVelocity;
     private Vector3 destination;
 
 
@@ -15,6 +15,7 @@ public class BasketMovement : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         destination = transform.position;
+        transform.position -= Vector3.up * 2;
     }
 
     private void Update()
@@ -43,5 +44,10 @@ public class BasketMovement : MonoBehaviour
         {
             item.Collide();
         }
+    }
+
+    public void MoveUp()
+    {
+        transform.DOMove(destination, 0.3f).SetEase(Ease.OutBack);
     }
 }

@@ -63,6 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Fx Explosion Pack\Script\DestroyEffect.cs" />
+    <Compile Include="Assets\Fx Explosion Pack\Script\csDemoScenceControl.cs" />
+    <Compile Include="Assets\Fx Explosion Pack\Script\csLightControl.cs" />
+    <Compile Include="Assets\Fx Explosion Pack\Script\csMouseOrbit.cs" />
     <Compile Include="Assets\Scripts\Basket\BasketMovement.cs" />
     <Compile Include="Assets\Scripts\Basket\Catcher.cs" />
     <Compile Include="Assets\Scripts\Basket\ItemsReceiver.cs" />
@@ -74,7 +78,10 @@
     <Compile Include="Assets\Scripts\Items\Egg.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemSpawner.cs" />
+    <Compile Include="Assets\Scripts\Manager\DataManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameStateManager.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\EggsColors.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ItemsHolder.cs" />
     <Compile Include="Assets\Scripts\UI\Game.cs" />
     <Compile Include="Assets\Scripts\UI\LoseScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
