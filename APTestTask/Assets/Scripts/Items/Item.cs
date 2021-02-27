@@ -1,19 +1,29 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Item : MonoBehaviour, ICollisiable
+public class Item : MonoBehaviour, ICollisiable, IPoolable
 {
     [SerializeField] protected float fallingSpeed;
     protected Rigidbody rigidBody;
 
-    private bool isInPool;
-    public bool IsInPool => isInPool;
-
     private bool takeForce = true;
+    private ItemSpawner itemSpawner;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+    }
+
+    public void Initialize(ItemSpawner itemSpawner)
+    {
+        this.itemSpawner = itemSpawner;
+        transform.SetParent(itemSpawner.transform);
+        transform.localPosition = Vector3.zero;
+        transform.localScale = Vector3.one;
+        takeForce = true;
+        rigidBody.useGravity = false;
+        rigidBody.angularVelocity = Vector3.zero;
+        transform.rotation = Quaternion.identity;
     }
 
 
@@ -31,8 +41,8 @@ public class Item : MonoBehaviour, ICollisiable
         rigidBody.useGravity = true;
     }
 
-    protected virtual void Disactivate()
+    public void GoToPool()
     {
-        isInPool = true;
+        itemSpawner.PootInPool(this);
     }
 }

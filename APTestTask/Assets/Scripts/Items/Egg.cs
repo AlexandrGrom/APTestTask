@@ -9,6 +9,6 @@ public class Egg : Item, IReciveble
         float duration = Vector3.Distance(parent.position, transform.position) / 2;
         transform.DOScale(Vector3.zero, duration).SetEase(Ease.OutSine);
         transform.DOLocalMove(Vector3.zero, duration).SetEase(Ease.OutSine);
-        DOVirtual.DelayedCall(duration, () => Destroy(gameObject)); // go to pool
+        DOVirtual.DelayedCall(duration, () => GoToPool()); 
     }
 }

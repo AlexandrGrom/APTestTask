@@ -19,17 +19,17 @@ public class BasketMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            Vector3 screenMouseposition = Input.mousePosition;
-            screenMouseposition.x = Mathf.Clamp
-                (screenMouseposition.x,
-                MinMaxScreenOffset.x * Screen.width,
-                MinMaxScreenOffset.y * Screen.width);
+        if (GameStateManager.CurrentState != GameState.Game) return;
+        if (!Input.GetMouseButton(0)) return;
+        
+        Vector3 screenMouseposition = Input.mousePosition;
+        screenMouseposition.x = Mathf.Clamp
+            (screenMouseposition.x,
+            MinMaxScreenOffset.x * Screen.width,
+            MinMaxScreenOffset.y * Screen.width);
 
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(screenMouseposition);
-            destination = new Vector3(worldMousePosition.x, transform.position.y, transform.position.z);
-        }
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(screenMouseposition);
+        destination = new Vector3(worldMousePosition.x, transform.position.y, transform.position.z);
     }
 
     private void FixedUpdate()
