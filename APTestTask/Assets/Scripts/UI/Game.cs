@@ -1,7 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
 using DG.Tweening;
-using System;
 
 public class Game : ScreenElement
 {
@@ -13,6 +12,8 @@ public class Game : ScreenElement
     {
         DataManager.UpdateData += OnUpdateData;
     }
+
+
 
     private void OnDestroy()
     {
@@ -37,6 +38,16 @@ public class Game : ScreenElement
     {
         OnUpdateData();
         Hud.DOAnchorPos(Vector2.zero, 0.2f).SetEase(Ease.OutSine);
+    }
+
+    private void Update()
+    {
+        if (DataManager.LeftTime < 15)
+        {
+            float speed = 10;
+            float range = 0.1f;
+            time.transform.localScale = Vector3.one + Vector3.one * range *  Mathf.Sin(Time.time * speed);
+        }
     }
 
 

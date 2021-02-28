@@ -11,10 +11,22 @@ public class Menu : ScreenElement
     [SerializeField] private float waitTime = 0.5f;
     [SerializeField] private TextMeshProUGUI timer;
 
-
     private void Awake()
     {
         play.onClick.AddListener(()=>StartCoroutine(Animation()));
+        ShakeButton();
+    }
+
+    private void ShakeButton()
+    {
+        if (GameStateManager.CurrentState != GameState.Menu) return;
+
+        DOTween.Sequence().Append(
+        play.transform.DORotate(Vector3.forward * 10, 0.2f).SetEase(Ease.InOutSine)).Append(
+        play.transform.DORotate(Vector3.forward * -10, 0.2f).SetEase(Ease.InOutSine)).Append(
+        play.transform.DORotate(Vector3.forward * 10, 0.2f).SetEase(Ease.InOutSine)).Append(
+        play.transform.DORotate(Vector3.zero, 0.1f).SetEase(Ease.InOutSine)).
+        SetDelay(Random.Range(1f, 2f)).SetLoops(-1, LoopType.Restart);
     }
 
     IEnumerator Animation ()

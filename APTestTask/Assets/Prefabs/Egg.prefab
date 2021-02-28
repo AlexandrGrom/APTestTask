@@ -76,7 +76,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329accfc633f0c24396550f08e3fa6f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingSpeed: 1
+  "EvaluateSpeeded\u0421hance":
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.10397431
+      outSlope: 0.10397431
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.09073359
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 3.577832
+      outSlope: 3.577832
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.02702701
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   mesh: {fileID: 3571983161533460867}
 --- !u!1 &3571983161533460865
 GameObject:

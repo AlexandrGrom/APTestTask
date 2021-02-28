@@ -13,6 +13,8 @@ public class ItemsReceiver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (GameStateManager.CurrentState != GameState.Game) return;
+
         if (other.TryGetComponent(out IReciveble reciveble))
         {
             tween.Kill(true);

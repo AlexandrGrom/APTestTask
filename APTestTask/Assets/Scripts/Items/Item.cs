@@ -6,16 +6,19 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Rigidbody))]
 public class Item : MonoBehaviour, ICollisiable, IPoolable
 {
-    private float fallingSpeed;
-    private Rigidbody rigidBody;
+    protected float fallingSpeed = 1;
+    protected Rigidbody rigidBody;
     private bool takeForce = true;
     private ItemSpawner itemSpawner;
+    protected int isSpeeded;
+
+    private RigidbodyConstraints constraints;
 
     protected virtual void Awake()
     {
         DataManager.UpdateData += UpdateSpeed;
         rigidBody = GetComponent<Rigidbody>();
-        Debug.Log(rigidBody == null);
+        constraints = rigidBody.constraints;
     }
 
     private void OnDestroy()
@@ -23,14 +26,19 @@ public class Item : MonoBehaviour, ICollisiable, IPoolable
         DataManager.UpdateData -= UpdateSpeed;
     }
 
-    private void UpdateSpeed()
+    protected virtual void UpdateSpeed()
     {
-        int speededObject = Random.Range(0, DataManager.EvaluateSpeedByTime()) > 2 ? 1 :0 ;
-        fallingSpeed = DataManager.EvaluateSpeedByTime() + speededObject;
+        fallingSpeed = DataManager.EvaluateSpeedByTime() + isSpeeded;
     }
 
-    public void Initialize(ItemSpawner itemSpawner)
+    public virtual void Initialize(ItemSpawner itemSpawner)
     {
+        float value = (float)DataManager.EvaluateSpeedByTime() / 7f ;
+        value = itemSpawner.EvaluateSpeededСhance.Evaluate(value);
+        isSpeeded = value > Random.Range(0f, 1f) ? 1 : 0;
+
+        rigidBody.constraints = constraints;
+
         this.itemSpawner = itemSpawner;
         transform.SetParent(itemSpawner.transform);
         transform.localPosition = new Vector3(itemSpawner.Offset,0,0);

@@ -586,7 +586,7 @@ Transform:
   m_GameObject: {fileID: 3571983161213846230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 3571983161533460864}
   - {fileID: 6570717750551627555}
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a728a3efc83dbf845bd12ddedadb1791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingSpeed: 1
+  constantSpeed: 4
 --- !u!1 &3571983161533460865
 GameObject:
   m_ObjectHideFlags: 0

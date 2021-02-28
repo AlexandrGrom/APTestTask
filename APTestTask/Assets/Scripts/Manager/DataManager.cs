@@ -19,6 +19,7 @@ public class DataManager : MonoBehaviour
 
     private void Awake()
     {
+        Counter = 0;
         Step = step;
         StartTimeValue = startTimeValue;
         LeftTime = startTimeValue;
@@ -46,7 +47,6 @@ public class DataManager : MonoBehaviour
     {
         LeftTime -= time;
         UpdateData?.Invoke();
-
     }
     public static void IncrementCounter()
     {
@@ -55,6 +55,8 @@ public class DataManager : MonoBehaviour
         {
             GameStateManager.CurrentState = GameState.Win ;
         }
+        UpdateData?.Invoke();
+
     }
 
     public static int EvaluateSpeedByTime()
