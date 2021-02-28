@@ -26,10 +26,7 @@ public class Game : ScreenElement
         if (seconds < 0) seconds = 0;
         string secondsString = (seconds < 10 ? "0" : "") + seconds;
 
-        if (DataManager.LeftTime < 15)
-        {
-            time.color = Color.red;
-        }
+
         time.text = $"{ DataManager.LeftTime / 60} : {secondsString}";
         progress.text = $"{DataManager.Counter}/{DataManager.Goal}";
     }
@@ -42,6 +39,10 @@ public class Game : ScreenElement
 
     private void Update()
     {
+        if (DataManager.LeftTime < 15)
+        {
+            time.color = Color.red;
+        }
         if (DataManager.LeftTime < 15)
         {
             float speed = 10;
